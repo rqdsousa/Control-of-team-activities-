@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "SISTEMA_PARA_CONTROLE_DE_ATIVIDADES_DA_EQUIPE")
+@Table(name = "TEAM")
 public class ChangeSpecificData implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -14,7 +14,7 @@ public class ChangeSpecificData implements Serializable {
     private long id ;
 
     @Enumerated(value = EnumType.STRING)
-    private TipoStatus status = null;
+    private StatusType status = null;
 
     private String ultimaAtt = null;
     private BigDecimal novoNumero = BigDecimal.valueOf(0);
@@ -32,11 +32,11 @@ public class ChangeSpecificData implements Serializable {
         this.id = id;
     }
 
-    public TipoStatus getStatus() {
+    public StatusType getStatus() {
         return status;
     }
 
-    public void setStatus(TipoStatus status) {
+    public void setStatus(StatusType status) {
         this.status = status;
     }
 

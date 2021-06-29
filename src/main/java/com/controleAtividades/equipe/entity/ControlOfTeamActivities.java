@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 
 @Entity
-@Table(name = "SISTEMA_PARA_CONTROLE_DE_ATIVIDADES_DA_EQUIPE")
+@Table(name = "ACTIVITIES")
 public class ControlOfTeamActivities implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -19,7 +19,7 @@ public class ControlOfTeamActivities implements Serializable {
     private String desenvolvendo;
 
     @Enumerated(value = EnumType.STRING)
-    private TipoStatus status;
+    private StatusType status;
 
     private String ultimaAtt;
     private BigDecimal novoNumero;
@@ -53,11 +53,11 @@ public class ControlOfTeamActivities implements Serializable {
         this.desenvolvendo = desenvolvendo;
     }
 
-    public TipoStatus getStatus() {
+    public StatusType getStatus() {
         return status;
     }
 
-    public void setStatus(TipoStatus status) {
+    public void setStatus(StatusType status) {
         this.status = status;
     }
 
@@ -122,7 +122,7 @@ public class ControlOfTeamActivities implements Serializable {
 
     }
 
-    public ControlOfTeamActivities(String historias, String desenvolvendo, TipoStatus status, String ultimaAtt, BigDecimal novoNumero, String obs, String implantação, String CADImplantação, String GMDU, String API) {
+    public ControlOfTeamActivities(String historias, String desenvolvendo, StatusType status, String ultimaAtt, BigDecimal novoNumero, String obs, String implantação, String CADImplantação, String GMDU, String API) {
 
         this.historias = historias;
         this.desenvolvendo = desenvolvendo;

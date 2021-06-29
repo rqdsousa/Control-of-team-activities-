@@ -11,7 +11,7 @@ import java.util.List;
 public interface ControlOfTeamActivitiesRepository extends JpaRepository<ControlOfTeamActivities, Long> {
 
 
-    @Query(value = "SELECT * FROM SISTEMA_PARA_CONTROLE_DE_ATIVIDADES_DA_EQUIPE WHERE STATUS = :status", nativeQuery = true)
+    @Query(value = "SELECT * FROM ACTIVITIES WHERE STATUS = :status", nativeQuery = true)
     List<ControlOfTeamActivities> findByStatus(@Param("status") String status);
 
 

@@ -1,7 +1,7 @@
 package com.controleAtividades.equipe.entity;
 
 
-public enum TipoStatus {
+public enum StatusType {
 
     DESENVOLVER,
     DESENVOLVENDO,
@@ -12,6 +12,7 @@ public enum TipoStatus {
     GMDU_ABERTA,
     CONCLUIDO,
     CANCELADO;
+
 
 
 
