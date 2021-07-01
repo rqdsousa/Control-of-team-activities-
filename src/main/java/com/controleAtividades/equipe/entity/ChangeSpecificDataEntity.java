@@ -13,8 +13,7 @@ public class ChangeSpecificDataEntity implements Serializable {
     @Id
     private long id ;
 
-    @Enumerated(value = EnumType.STRING)
-    private StatusType status = null;
+    private String status = null;
 
     private String ultimaAtt = null;
     private BigDecimal novoNumero = BigDecimal.valueOf(0);
@@ -32,11 +31,11 @@ public class ChangeSpecificDataEntity implements Serializable {
         this.id = id;
     }
 
-    public StatusType getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(StatusType status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

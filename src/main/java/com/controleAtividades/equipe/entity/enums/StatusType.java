@@ -1,4 +1,4 @@
-package com.controleAtividades.equipe.entity;
+package com.controleAtividades.equipe.entity.enums;
 
 
 public enum StatusType {
@@ -8,15 +8,13 @@ public enum StatusType {
     TESTAR,
     TESTANDO,
     HOMOLOGADO,
-    AGUARDANDO_GMDU,
-    GMDU_ABERTA,
+    AGUARDANDO_GMUD,
+    GMUD_ABERTA,
     CONCLUIDO,
     CANCELADO;
 
+}
 
-
-
-    }
 
 
 

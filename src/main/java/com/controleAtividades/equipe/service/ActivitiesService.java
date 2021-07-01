@@ -2,7 +2,7 @@ package com.controleAtividades.equipe.service;
 
 import com.controleAtividades.equipe.entity.ChangeSpecificDataEntity;
 import com.controleAtividades.equipe.entity.ControlOfTeamActivities;
-import com.controleAtividades.equipe.entity.StatusType;
+import com.controleAtividades.equipe.entity.enums.StatusType;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface ActivitiesService {
 
 
-    ControlOfTeamActivities newActivities(ControlOfTeamActivities controlOfTeamActivities);
+    ResponseEntity<Object> newActivities(ControlOfTeamActivities controlOfTeamActivities);
 
     List<ControlOfTeamActivities> listControlOfTeamActivities();
 
@@ -24,3 +24,4 @@ public interface ActivitiesService {
 
     ResponseEntity  updateData(long id, ChangeSpecificDataEntity changeSpecificData);
 }
+

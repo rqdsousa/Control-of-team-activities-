@@ -2,7 +2,7 @@ package com.controleAtividades.equipe.controller;
 
 import com.controleAtividades.equipe.entity.ChangeSpecificDataEntity;
 import com.controleAtividades.equipe.entity.ControlOfTeamActivities;
-import com.controleAtividades.equipe.entity.StatusType;
+import com.controleAtividades.equipe.entity.enums.StatusType;
 import com.controleAtividades.equipe.repository.ControlOfTeamActivitiesRepository;
 import com.controleAtividades.equipe.service.ActivitiesService;
 import io.swagger.annotations.Api;
@@ -30,11 +30,9 @@ public class ControlOfTeamActivitiesController {
     @Autowired
     ActivitiesService service;
 
-    @ApiImplicitParams({@ApiImplicitParam(allowableValues="ABERTO, PENDENTE, FECHADO")
-    })
     @PostMapping("/newActivities")
     @ApiOperation(value = "CRIAR UMA NOVA HISTÓRIA ")
-    public ControlOfTeamActivities newActivities(@RequestBody @Valid ControlOfTeamActivities controlOfTeamActivities) {
+    public ResponseEntity<Object> newActivities(@RequestBody @Valid ControlOfTeamActivities controlOfTeamActivities) {
         return service.newActivities(controlOfTeamActivities);
     }
 
@@ -59,33 +57,17 @@ public class ControlOfTeamActivitiesController {
     @DeleteMapping("/delete/{id}")
     @ApiOperation(value = "DELETAR")
     public ResponseEntity delete(@PathVariable(value = "id") long id) {
-       return service.deleteSingle(id);
+        return service.deleteSingle(id);
     }
 
     @PatchMapping(path = "update/{id}")
     @ApiOperation(value = "ATUALIZAR OS DADOS DO SISTEMA")
     public ResponseEntity  update(@PathVariable(value = "id") long id, @RequestBody @Valid ChangeSpecificDataEntity changeSpecificData){
-       return service.updateData(id,changeSpecificData);
+        return service.updateData(id,changeSpecificData);
 
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,10 +1,9 @@
 package com.controleAtividades.equipe.entity;
 
-import org.springframework.web.bind.annotation.ExceptionHandler;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -25,8 +24,6 @@ public class ControlOfTeamActivities implements Serializable {
 
     @NotNull(message = "Status não pode ser null")
     @NotBlank(message = "Status não pode estar em branco")
-    @NotEmpty(message = "Status não pode estar vazio")
-    @Enumerated(value = EnumType.STRING)
     private String status;
 
     private String ultimaAtt;
