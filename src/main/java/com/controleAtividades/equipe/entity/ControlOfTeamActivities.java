@@ -1,6 +1,11 @@
 package com.controleAtividades.equipe.entity;
 
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -16,17 +21,22 @@ public class ControlOfTeamActivities implements Serializable {
 
     private long id;
     private String historias;
-    private String desenvolvendo;
+    private String desenvolvedor;
 
+    @NotNull(message = "Status não pode ser null")
+    @NotBlank(message = "Status não pode estar em branco")
+    @NotEmpty(message = "Status não pode estar vazio")
     @Enumerated(value = EnumType.STRING)
-    private StatusType status;
+    private String status;
 
     private String ultimaAtt;
     private BigDecimal novoNumero;
+
+
     private String obs;
     private String implantação;
     private String CADImplantação;
-    private String GMDU;
+    private String GMUD;
     private String API;
 
     public long getId() {
@@ -45,19 +55,19 @@ public class ControlOfTeamActivities implements Serializable {
         this.historias = historias;
     }
 
-    public String getDesenvolvendo() {
-        return desenvolvendo;
+    public String getDesenvolvedor() {
+        return desenvolvedor;
     }
 
-    public void setDesenvolvendo(String desenvolvendo) {
-        this.desenvolvendo = desenvolvendo;
+    public void setDesenvolvedor(String desenvolvedor) {
+        this.desenvolvedor = desenvolvedor;
     }
 
-    public StatusType getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(StatusType status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -101,12 +111,12 @@ public class ControlOfTeamActivities implements Serializable {
         this.CADImplantação = CADImplantação;
     }
 
-    public String getGMDU() {
-        return GMDU;
+    public String getGMUD() {
+        return GMUD;
     }
 
-    public void setGMDU(String GMDU) {
-        this.GMDU = GMDU;
+    public void setGMUD(String GMUD) {
+        this.GMUD = GMUD;
     }
 
     public String getAPI() {
@@ -122,17 +132,17 @@ public class ControlOfTeamActivities implements Serializable {
 
     }
 
-    public ControlOfTeamActivities(String historias, String desenvolvendo, StatusType status, String ultimaAtt, BigDecimal novoNumero, String obs, String implantação, String CADImplantação, String GMDU, String API) {
+    public ControlOfTeamActivities(String historias, String desenvolvedor, String status, String ultimaAtt, BigDecimal novoNumero, String obs, String implantação, String CADImplantação, String GMUD, String API) {
 
         this.historias = historias;
-        this.desenvolvendo = desenvolvendo;
+        this.desenvolvedor = desenvolvedor;
         this.status = status;
         this.ultimaAtt = ultimaAtt;
         this.novoNumero = novoNumero;
         this.obs = obs;
         this.implantação = implantação;
         this.CADImplantação = CADImplantação;
-        this.GMDU = GMDU;
+        this.GMUD = GMUD;
         this.API = API;
     }
 

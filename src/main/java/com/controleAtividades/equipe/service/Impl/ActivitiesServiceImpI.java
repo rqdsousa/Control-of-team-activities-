@@ -1,6 +1,6 @@
 package com.controleAtividades.equipe.service.Impl;
 
-import com.controleAtividades.equipe.entity.ChangeSpecificData;
+import com.controleAtividades.equipe.entity.ChangeSpecificDataEntity;
 import com.controleAtividades.equipe.entity.ControlOfTeamActivities;
 import com.controleAtividades.equipe.entity.StatusType;
 import com.controleAtividades.equipe.repository.ControlOfTeamActivitiesRepository;
@@ -23,9 +23,11 @@ public class ActivitiesServiceImpI implements ActivitiesService {
 
     @Override
     public ControlOfTeamActivities newActivities(ControlOfTeamActivities controlOfTeamActivities) {
-        if(controlOfTeamActivities.getStatus() == StatusType.CANCELADO){
-           return null;
-        }
+        String status = controlOfTeamActivities.getStatus().trim().toUpperCase();
+        StatusType.valueOf(status);
+//        if(controlOfTeamActivities.getStatus() == StatusType.CANCELADO){
+//           return null;
+//        }
         return repository.save(controlOfTeamActivities);
     }
 
@@ -48,19 +50,19 @@ public class ActivitiesServiceImpI implements ActivitiesService {
     public ResponseEntity deleteSingle(long id) {
         return repository.findById(id)
                 .map(user -> {
-                    if (user.getStatus() == StatusType.DESENVOLVER) {
-                        repository.deleteById(id);
-                    } else {
-                        user.setStatus(StatusType.valueOf("CANCELADO"));
-                        repository.save(user);
-                    }
+//                    if (user.getStatus() == StatusType.DESENVOLVER) {
+//                        repository.deleteById(id);
+//                    } else {
+//                        user.setStatus(StatusType.valueOf("CANCELADO"));
+//                        repository.save(user);
+//                    }
 
                     return ResponseEntity.ok().body(user);
                 }).orElse(ResponseEntity.notFound().build());
     }
 
     @Override
-    public ResponseEntity updateData(long id, ChangeSpecificData changeSpecificData) {
+    public ResponseEntity updateData(long id, ChangeSpecificDataEntity changeSpecificData) {
         return repository.findById(id)
                 .map(user -> {
                     Date data = new Date();
@@ -69,9 +71,9 @@ public class ActivitiesServiceImpI implements ActivitiesService {
                     user.setId(id);
                     user.setUltimaAtt(formater.format(data));
 
-                if (changeSpecificData.getStatus() != null && changeSpecificData.getStatus().toString() != "CANCELADO"){
-                        user.setStatus(changeSpecificData.getStatus());
-                    }
+//                if (changeSpecificData.getStatus() != null && changeSpecificData.getStatus().toString() != "CANCELADO"){
+//                        user.setStatus(changeSpecificData.getStatus());
+//                    }
 
                     if (changeSpecificData.getNovoNumero() != BigDecimal.valueOf(0)){
                         user.setNovoNumero(changeSpecificData.getNovoNumero());
@@ -86,8 +88,8 @@ public class ActivitiesServiceImpI implements ActivitiesService {
                     if (changeSpecificData.getCADImplantação() != null){
                         user.setCADImplantação(changeSpecificData.getCADImplantação());
                     }
-                    if (changeSpecificData.getGMDU() != null){
-                        user.setGMDU(changeSpecificData.getGMDU());
+                    if (changeSpecificData.getGMUD() != null){
+                        user.setGMUD(changeSpecificData.getGMUD());
                     }
                     if (changeSpecificData.getAPI() != null){
                         user.setAPI(changeSpecificData.getAPI());

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "TEAM")
-public class ChangeSpecificData implements Serializable {
+public class ChangeSpecificDataEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,7 +21,7 @@ public class ChangeSpecificData implements Serializable {
     private String obs = null;
     private String implantação = null;
     private String CADImplantação = null;
-    private String GMDU = null;
+    private String GMUD = null;
     private String API = null;
 
     public long getId() {
@@ -80,12 +80,12 @@ public class ChangeSpecificData implements Serializable {
         this.CADImplantação = CADImplantação;
     }
 
-    public String getGMDU() {
-        return GMDU;
+    public String getGMUD() {
+        return GMUD;
     }
 
-    public void setGMDU(String GMDU) {
-        this.GMDU = GMDU;
+    public void setGMUD(String GMUD) {
+        this.GMUD = GMUD;
     }
 
     public String getAPI() {
@@ -95,4 +95,6 @@ public class ChangeSpecificData implements Serializable {
     public void setAPI(String API) {
         this.API = API;
     }
+
+
 }
