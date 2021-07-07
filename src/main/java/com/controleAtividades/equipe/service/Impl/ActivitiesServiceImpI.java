@@ -39,6 +39,7 @@ public class ActivitiesServiceImpI implements ActivitiesService {
         return false;
     }
 
+
     public Boolean validateValueCancel(String status) {
         status = status.trim().toUpperCase();
 
@@ -48,10 +49,12 @@ public class ActivitiesServiceImpI implements ActivitiesService {
         return false;
     }
 
+
     public ResponseEntity dispatchError(String message, int code, String status, String objectNames) {
         ErrorResponse errorResponse = new ErrorResponse(message, code , status, objectNames, null);
         return ResponseEntity.status(400).body(errorResponse);
     }
+
 
     @Override
     public ResponseEntity<Object> newActivities(ControlOfTeamActivities controlOfTeamActivities) {
@@ -70,6 +73,7 @@ public class ActivitiesServiceImpI implements ActivitiesService {
         ControlOfTeamActivities save = repository.save(controlOfTeamActivities);
         return ResponseEntity.status(201).body(save);
     }
+
 
     @Override
     public List<ControlOfTeamActivities> listControlOfTeamActivities() {
